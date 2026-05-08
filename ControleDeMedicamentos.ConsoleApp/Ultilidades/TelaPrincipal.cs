@@ -5,9 +5,11 @@ namespace ControleDeMedicamentos.ConsoleApp.Ultilidades;
 
 public class TelaPrincipal
 {
+    private readonly IRepositorio<Fornecedor> repositorioFornecedor;
 
-    public TelaPrincipal()
+    public TelaPrincipal(IRepositorio<Fornecedor> repositorioFornecedor)
     {
+        this.repositorioFornecedor = repositorioFornecedor;
     }
 
     public ITelaOpcoes? ApresentarMenuOpcoesPrincipal()
@@ -27,7 +29,7 @@ public class TelaPrincipal
         string? opcaoMenuPrincipal = Console.ReadLine()?.ToUpper();
 
         if (opcaoMenuPrincipal == "1")
-            return null;
+            return new TelaFornecedor(repositorioFornecedor);
 
         if (opcaoMenuPrincipal == "2")
             return null;

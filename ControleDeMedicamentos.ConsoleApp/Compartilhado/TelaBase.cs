@@ -71,11 +71,13 @@ public abstract class TelaBase<T> where T : EntidadeBase
             Notificador.ExibirMensagem("O formato do valor de um dos campos está inválido.");
             Cadastrar();
         }
+        
         catch (Exception)
         {
             Notificador.ExibirMensagem("Ocorreu um erro inesperado. Tente novamente.");
             Cadastrar();
         }
+        
     }
 
     public void Editar()
@@ -85,13 +87,14 @@ public abstract class TelaBase<T> where T : EntidadeBase
         VisualizarTodos(deveExibirCabecalho: false);
 
         Console.WriteLine("---------------------------------");
+        
 
         string? idSelecionado;
 
         do
         {
             Console.Write("Digite o ID do registro que deseja editar (ou S para sair): ");
-            idSelecionado = Console.ReadLine() ?? string.Empty;
+            idSelecionado = Console.ReadLine().ToUpper() ?? string.Empty;
 
             if (idSelecionado == "S")
                 return;
@@ -171,6 +174,14 @@ public abstract class TelaBase<T> where T : EntidadeBase
         } while (true);
 
         T? registroSelecionado = repositorio.SelecionarPorId(idSelecionado);
+
+        bool conseguiuExcluir = repositorio.Excluir(registroSelecionado);
+
+        if (conseguiuExcluir)
+        {
+            Notificador.ExibirMensagem($"O registro {registroSelecionado.Id} foi excluido com sucesso");
+
+        }
 
         if (registroSelecionado == null)
         {

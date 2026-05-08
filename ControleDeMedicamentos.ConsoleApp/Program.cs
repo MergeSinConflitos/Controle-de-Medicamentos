@@ -1,10 +1,14 @@
 ﻿using System.Text.Json;
+using ControleDeMedicamentos.ConsoleApp;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
 using ControleDeMedicamentos.ConsoleApp.Ultilidades;
 
 ContextoJson contexto = new ContextoJson();
 
+IRepositorio<Fornecedor> repositorioFornecedor = new RepositorioFornecedorEmMemoria();
+Fornecedor fornecedor = new Fornecedor("joao","49999332190","11223344556677");
+repositorioFornecedor.Cadastrar(fornecedor);
 try
 {
     contexto.Carregar();
@@ -16,7 +20,7 @@ catch (JsonException)
 }
 
 
-TelaPrincipal telaPrincipal = new TelaPrincipal();
+TelaPrincipal telaPrincipal = new TelaPrincipal(repositorioFornecedor);
 
 while (true)
 {

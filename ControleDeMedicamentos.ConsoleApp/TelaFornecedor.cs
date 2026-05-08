@@ -17,35 +17,36 @@ public class TelaFornecedor : TelaBase<Fornecedor>, ITelaCrud, ITelaOpcoes
         {
 
             ExibirCabecalho("Visualizar Fornecedores");
-
-            Console.WriteLine(
-       "{0, -7} | {1, -20} | {2, -20} | {3, -20}",
-       "Id", "Nome", "Telefone", "CNPJ"
-   );
-
-            List<Fornecedor> fornecedores = repositorio.SelecionarTodos();
-
-
-            if (fornecedores.Count == 0)
-            {
-                Notificador.ExibirMensagem("Nenhum fornecedor cadastrado");
-                return;
-            }
-
-            foreach (Fornecedor f in fornecedores)
-            {
-                Console.WriteLine("{0,-7} | {1,-20} | {2,-20} | {3,-20}", f.Id, f.Nome, f.Telefone, f.CNPJ);
-            }
-
-
-            if (deveExibirCabecalho)
-            {
-
-                System.Console.WriteLine("--------------------------------------");
-                System.Console.WriteLine("Pressione ENTER para continuar");
-                Console.ReadLine();
-            }
         }
+
+        Console.WriteLine(
+   "{0, -7} | {1, -20} | {2, -20} | {3, -20}",
+   "Id", "Nome", "Telefone", "CNPJ"
+);
+
+        List<Fornecedor> fornecedores = repositorio.SelecionarTodos();
+
+
+        if (fornecedores.Count == 0)
+        {
+            Notificador.ExibirMensagem("Nenhum fornecedor cadastrado");
+            return;
+        }
+
+        foreach (Fornecedor f in fornecedores)
+        {
+            Console.WriteLine("{0,-7} | {1,-20} | {2,-20} | {3,-20}", f.Id, f.Nome, f.Telefone, f.CNPJ);
+        }
+
+
+        if (deveExibirCabecalho)
+        {
+
+            System.Console.WriteLine("--------------------------------------");
+            System.Console.WriteLine("Pressione ENTER para continuar");
+            Console.ReadLine();
+        }
+
 
     }
 
@@ -75,7 +76,7 @@ public class TelaFornecedor : TelaBase<Fornecedor>, ITelaCrud, ITelaOpcoes
             erros.Add("Já existe um fornecedor com esse CNPJ");
             return erros;
         }
-        return null;
+        return erros;
     }
 
 }

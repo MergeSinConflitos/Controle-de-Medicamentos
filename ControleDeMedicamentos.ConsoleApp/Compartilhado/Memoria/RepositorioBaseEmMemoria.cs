@@ -4,7 +4,7 @@ namespace ControleDeMedicamentos.ConsoleApp.Compartilhado.Memoria;
 
 public abstract class RepositorioBaseEmMemoria<T> where T : EntidadeBase
 {
-    protected List<T> registros = new List<T>();
+    protected static List<T> registros = new List<T>();
 
     public void Cadastrar(T entidade)
     {
@@ -44,7 +44,7 @@ public abstract class RepositorioBaseEmMemoria<T> where T : EntidadeBase
     {
         foreach (T registro in registros)
         {
-            if (registro.Id == idSelecionado)
+            if (registro.Id == idSelecionado.ToLower())
                 return registro;
         }
 

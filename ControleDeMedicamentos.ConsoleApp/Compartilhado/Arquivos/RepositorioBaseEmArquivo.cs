@@ -61,7 +61,7 @@ public abstract class RepositorioBaseEmArquivo<T> where T : EntidadeBase
     {
         foreach (T registro in registros)
         {
-            if (registro.Id == idSelecionado)
+            if (registro.Id == idSelecionado.ToLower())
                 return registro;
         }
 
