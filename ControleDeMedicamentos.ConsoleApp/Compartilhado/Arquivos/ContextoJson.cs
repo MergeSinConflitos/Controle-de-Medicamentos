@@ -6,6 +6,7 @@ namespace ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
 
 public class ContextoJson
 {
+    public List<Fornecedor> Fornecedores = new List<Fornecedor>();
     private readonly string caminhoArquivo;
 
 
