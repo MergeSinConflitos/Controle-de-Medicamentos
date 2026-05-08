@@ -49,5 +49,6 @@ public class ContextoJson
         if (contextoSalvo == null)
             return;
 
+        this.Fornecedores = contextoSalvo.Fornecedores;
     }
 }
