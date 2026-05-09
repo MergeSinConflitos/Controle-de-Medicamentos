@@ -6,9 +6,7 @@ using ControleDeMedicamentos.ConsoleApp.Ultilidades;
 
 ContextoJson contexto = new ContextoJson();
 
-IRepositorio<Fornecedor> repositorioFornecedor = new RepositorioFornecedorEmMemoria();
-Fornecedor fornecedor = new Fornecedor("joao","49999332190","11223344556677");
-repositorioFornecedor.Cadastrar(fornecedor);
+
 try
 {
     contexto.Carregar();
@@ -18,6 +16,8 @@ catch (JsonException)
     Notificador.ExibirMensagem("O arquivo de armazenamento está corrompido! Contate o suporte.");
     return;
 }
+IRepositorio<Fornecedor> repositorioFornecedor = new RepositorioFornecedorEmArquivo(contexto);
+
 
 
 TelaPrincipal telaPrincipal = new TelaPrincipal(repositorioFornecedor);

@@ -17,6 +17,10 @@ public class Fornecedor : EntidadeBase
         CNPJ = cNPJ;
     }
 
+    public Fornecedor()
+    {
+    }
+
     public override void AtualizarDados(EntidadeBase entidadeAtualizada)
     {
         Fornecedor fornecedorAtualizado = (Fornecedor)entidadeAtualizada;
