@@ -193,11 +193,6 @@ public abstract class TelaBase<T> where T : EntidadeBase
 
         //excluye y muestra resultado
         bool conseguiuExcluir = repositorio.Excluir(registroSelecionado);
-
-        if(conseguiuExcluir)
-        {
-            Notificador.ExibirMensagem($"O registro {registroSelecionado.Id} foi excluido com sucesso");
-        }
  
         if(conseguiuExcluir)
             Notificador.ExibirMensagem($"O registro \"{idSelecionado}\" foi excluído com sucesso!");
