@@ -199,8 +199,7 @@ public abstract class TelaBase<T> where T : EntidadeBase
             return;
         }
 
-        // 5. excluye el registro
-        bool conseguiuExcluir = repositorio.Excluir(registroSelecionado);
+        
 
         // 6. muestra el resultado
         if (conseguiuExcluir)
