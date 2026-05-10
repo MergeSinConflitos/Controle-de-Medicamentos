@@ -51,5 +51,7 @@ public class ContextoJson
         if (contextoSalvo == null)
             return;
 
+        this.Paciente = contextoSalvo.Paciente;
+
     }
 }

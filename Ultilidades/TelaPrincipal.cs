@@ -1,13 +1,17 @@
 using System;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
+using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 
 namespace ControleDeMedicamentos.ConsoleApp.Ultilidades;
 
 public class TelaPrincipal
-{
+{   
+    private readonly IRepositorio<Paciente> repositorioPaciente;
 
-    public TelaPrincipal()
+    public TelaPrincipal(IRepositorio<Paciente> repositorioPaciente)
     {
+        this.repositorioPaciente = repositorioPaciente;
+
     }
 
     public ITelaOpcoes? ApresentarMenuOpcoesPrincipal()
@@ -30,7 +34,7 @@ public class TelaPrincipal
             return null;
 
         if (opcaoMenuPrincipal == "2")
-            return null;
+            return new TelaPaciente(repositorioPaciente);
 
         if (opcaoMenuPrincipal == "3")
             return null;

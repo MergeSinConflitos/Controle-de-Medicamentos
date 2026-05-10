@@ -1,9 +1,10 @@
 using System;
+using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
 
 namespace ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 
-public class RepositorioPacienteEmArquivo : RepositorioBaseEmArquivo<Paciente>
+public class RepositorioPacienteEmArquivo : RepositorioBaseEmArquivo<Paciente>, IRepositorio<Paciente>
 {
     public RepositorioPacienteEmArquivo(ContextoJson contexto) : base(contexto)
     {
