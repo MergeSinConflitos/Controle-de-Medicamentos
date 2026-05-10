@@ -11,6 +11,7 @@
     <Folder Include="Compartilhado\" />
     <Folder Include="Compartilhado\Arquivos\" />
     <Folder Include="Compartilhado\Memoria\" />
+    <Folder Include="ModuloMedicamentos\" />
     <Folder Include="Ultilidades\" />
   </ItemGroup>
 
