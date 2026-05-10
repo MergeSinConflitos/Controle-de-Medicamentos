@@ -2,7 +2,9 @@
 using ControleDeMedicamentos.ConsoleApp;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
+using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 using ControleDeMedicamentos.ConsoleApp.Ultilidades;
+
 
 ContextoJson contexto = new ContextoJson();
 
@@ -16,11 +18,13 @@ catch (JsonException)
     Notificador.ExibirMensagem("O arquivo de armazenamento está corrompido! Contate o suporte.");
     return;
 }
+
+
+
 IRepositorio<Fornecedor> repositorioFornecedor = new RepositorioFornecedorEmArquivo(contexto);
+IRepositorio<Paciente> repositorioPaciente = new RepositorioPacienteEmArquivo(contexto);
 
-
-
-TelaPrincipal telaPrincipal = new TelaPrincipal(repositorioFornecedor);
+TelaPrincipal telaPrincipal = new TelaPrincipal(repositorioFornecedor, repositorioPaciente);
 
 while (true)
 {

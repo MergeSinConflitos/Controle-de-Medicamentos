@@ -20,9 +20,9 @@ public class TelaFornecedor : TelaBase<Fornecedor>, ITelaCrud, ITelaOpcoes
         }
 
         Console.WriteLine(
-   "{0, -7} | {1, -20} | {2, -20} | {3, -20}",
-   "Id", "Nome", "Telefone", "CNPJ"
-);
+            "{0, -7} | {1, -20} | {2, -20} | {3, -20}",
+            "Id", "Nome", "Telefone", "CNPJ"
+        );
 
         List<Fornecedor> fornecedores = repositorio.SelecionarTodos();
 
