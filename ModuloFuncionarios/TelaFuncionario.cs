@@ -57,4 +57,23 @@ public class TelaFuncionario : TelaBase<Funcionario>, ITelaOpcoes, ITelaCrud
 
         return new Funcionario(nome, telefone, cpf);
     }
+
+    protected override List<string> ValidarRegistroDuplicado(Funcionario novaEntidade, string? idIgnorado = null)
+    {
+        List<string> erros = new List<string>();
+
+        foreach (Funcionario f in repositorio.SelecionarTodos())
+        {
+            if (f.Id == idIgnorado)
+                continue;
+
+            if (f.Cpf == novaEntidade.Cpf)
+            {
+                erros.Add("Já existe um funcionário cadastrado com este CPF");
+                break;
+            }
+        }
+
+        return erros;
+    }
 }

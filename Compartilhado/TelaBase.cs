@@ -175,34 +175,31 @@ public abstract class TelaBase<T> where T : EntidadeBase
 
         T? registroSelecionado = repositorio.SelecionarPorId(idSelecionado);
 
-        bool conseguiuExcluir = repositorio.Excluir(registroSelecionado);
-
-        if (conseguiuExcluir)
-        {
-            Notificador.ExibirMensagem($"O registro {registroSelecionado.Id} foi excluido com sucesso");
-
-        }
-
-        if (registroSelecionado == null)
+        if(registroSelecionado == null)
         {
             Notificador.ExibirMensagem("Não foi possível encontrar o registro requisitado.");
-
             Excluir();
             return;
         }
-
+        
+        // 4 valida regla negocio
         List<string> errosExclusao = ValidarExclusaoRegistro(registroSelecionado);
 
-        if (errosExclusao.Count > 0)
+        if(errosExclusao.Count > 0)
         {
             Notificador.ExibirMensagensErro(errosExclusao);
             return;
         }
 
-        
+        //excluye y muestra resultado
+        bool conseguiuExcluir = repositorio.Excluir(registroSelecionado);
 
-        // 6. muestra el resultado
-        if (conseguiuExcluir)
+        if(conseguiuExcluir)
+        {
+            Notificador.ExibirMensagem($"O registro {registroSelecionado.Id} foi excluido com sucesso");
+        }
+ 
+        if(conseguiuExcluir)
             Notificador.ExibirMensagem($"O registro \"{idSelecionado}\" foi excluído com sucesso!");
         else
             Notificador.ExibirMensagem("Não foi possível excluir o registro.");
