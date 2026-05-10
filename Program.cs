@@ -1,9 +1,10 @@
 ﻿using System.Text.Json;
-using ControleDeMedicamentos.ConsoleApp;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
+using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 using ControleDeMedicamentos.ConsoleApp.Ultilidades;
+
 
 
 ContextoJson contexto = new ContextoJson();

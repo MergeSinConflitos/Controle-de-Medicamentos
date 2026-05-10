@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 
-namespace ControleDeMedicamentos.ConsoleApp;
+namespace ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 
 public class Fornecedor : EntidadeBase
 {

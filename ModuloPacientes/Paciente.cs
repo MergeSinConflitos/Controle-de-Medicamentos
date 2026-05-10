@@ -5,12 +5,12 @@ using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 namespace ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 
 public class Paciente : EntidadeBase
-{   
+{
     public string Nome { get; set; }
     public string Telefone { get; set; }
     public string CartaoSus { get; set; }
     public string Cpf { get; set; }
-    
+
     public Paciente()
     {
     }
@@ -35,14 +35,14 @@ public class Paciente : EntidadeBase
 
     public override List<string> Validar()
     {
-       List<string> erros = new List<string>();
+        List<string> erros = new List<string>();
 
         if (string.IsNullOrWhiteSpace(Nome))
             erros.Add("O campo '/Nome/' é obrigatório");
-        
+
         else if (Nome.Length < 3 || Nome.Length > 100)
             erros.Add("O nome deve ter entre 3 e 100 caracteres");
-        
+
         if (string.IsNullOrWhiteSpace(Telefone))
             erros.Add("O campo 'Telefone' é obrigatório");
         else if (Telefone.Length != 13 && Telefone.Length != 14)
@@ -58,7 +58,7 @@ public class Paciente : EntidadeBase
         else if (Cpf.Length != 11)
             erros.Add("O CPF deve ter 11 dígitos");
 
-        return erros; 
+        return erros;
 
     }
 }

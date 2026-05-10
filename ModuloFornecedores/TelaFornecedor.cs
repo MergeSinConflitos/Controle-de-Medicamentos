@@ -2,7 +2,7 @@ using System;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 using ControleDeMedicamentos.ConsoleApp.Ultilidades;
 
-namespace ControleDeMedicamentos.ConsoleApp;
+namespace ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 
 public class TelaFornecedor : TelaBase<Fornecedor>, ITelaCrud, ITelaOpcoes
 {

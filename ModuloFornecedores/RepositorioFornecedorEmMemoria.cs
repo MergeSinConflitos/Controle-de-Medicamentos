@@ -2,6 +2,6 @@ using System;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 using ControleDeMedicamentos.ConsoleApp.Compartilhado.Memoria;
 
-namespace ControleDeMedicamentos.ConsoleApp;
+namespace ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 
 public class RepositorioFornecedorEmMemoria : RepositorioBaseEmMemoria<Fornecedor>, IRepositorio<Fornecedor>;
