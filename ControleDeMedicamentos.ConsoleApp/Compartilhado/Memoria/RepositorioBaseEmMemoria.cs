@@ -44,7 +44,7 @@ public abstract class RepositorioBaseEmMemoria<T> where T : EntidadeBase
     {
         foreach (T registro in registros)
         {
-            if (registro.Id == idSelecionado.ToLower())
+            if (registro.Id == idSelecionado)
                 return registro;
         }
 

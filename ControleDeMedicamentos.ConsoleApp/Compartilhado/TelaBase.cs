@@ -94,7 +94,7 @@ public abstract class TelaBase<T> where T : EntidadeBase
         do
         {
             Console.Write("Digite o ID do registro que deseja editar (ou S para sair): ");
-            idSelecionado = Console.ReadLine().ToUpper() ?? string.Empty;
+            idSelecionado = Console.ReadLine()?? string.Empty;
 
             if (idSelecionado == "S")
                 return;
