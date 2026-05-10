@@ -150,7 +150,7 @@ public abstract class TelaBase<T> where T : EntidadeBase
 
     public void Excluir()
     {
-        ExibirCabecalho("Exclusão de Caixa");
+        ExibirCabecalho("Exclusão de Pacientes");
 
         VisualizarTodos(deveExibirCabecalho: false);
 
@@ -179,6 +179,24 @@ public abstract class TelaBase<T> where T : EntidadeBase
             Excluir();
             return;
         }
+
+        List<string> errosExclusao = ValidarExclusaoRegistro(registroSelecionado);
+
+        if (errosExclusao.Count > 0)
+        {
+            Notificador.ExibirMensagensErro(errosExclusao);
+            return;
+        }
+
+        // 5. excluye el registro
+        bool conseguiuExcluir = repositorio.Excluir(registroSelecionado);
+
+        // 6. muestra el resultado
+        if (conseguiuExcluir)
+            Notificador.ExibirMensagem($"O registro \"{idSelecionado}\" foi excluído com sucesso!");
+        else
+            Notificador.ExibirMensagem("Não foi possível excluir o registro.");
+
     }
     public abstract void VisualizarTodos(bool deveExibirCabecalho);
 
