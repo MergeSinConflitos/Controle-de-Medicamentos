@@ -11,6 +11,6 @@ public class RepositorioMedicamentoEmArquivo : RepositorioBaseEmArquivo<Medicame
 
     protected override List<Medicamento> CarregarRegistros()
     {
-        throw new NotImplementedException();
+        return contexto.Medicamentos;
     }
 }

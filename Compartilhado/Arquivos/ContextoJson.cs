@@ -2,16 +2,18 @@ using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
+using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
 using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 
 namespace ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
 
 public class ContextoJson
-{   
+{
     public List<Paciente> Paciente { get; set; } = new List<Paciente>();
-    
+
     public List<Fornecedor> Fornecedores { get; set; } = new List<Fornecedor>();
-    
+    public List<Medicamento> Medicamentos { get; set; } = new List<Medicamento>();
+
     private readonly string caminhoArquivo;
 
     public ContextoJson()
@@ -55,5 +57,6 @@ public class ContextoJson
 
         this.Paciente = contextoSalvo.Paciente;
         this.Fornecedores = contextoSalvo.Fornecedores;
+        this.Medicamentos = contextoSalvo.Medicamentos;
     }
 }
