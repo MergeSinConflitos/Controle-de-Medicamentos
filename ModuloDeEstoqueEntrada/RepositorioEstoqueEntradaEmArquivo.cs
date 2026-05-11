@@ -20,6 +20,7 @@ public class RepositorioEstoqueEntradaEmArquivo : IRepositorio<EstoqueEntrada>
 
     public void Cadastrar(EstoqueEntrada entidade)
     {
+        entidade.RegistrarEntrada();
         registros.Add(entidade);
 
         contexto.Salvar();

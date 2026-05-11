@@ -30,6 +30,19 @@ public class EstoqueEntrada
 
     }
 
+    public void RegistrarEntrada()
+    {
+        if (Medicamento == null)
+        {
+            return;
+        }
+        if (Quantidade <= 0)
+        {
+            return;
+        }
+        Medicamento.QuantidadeEmEstoque += Quantidade;
+    }
+
     public List<string> Validar()
     {
         List<string> erros = new List<string>();

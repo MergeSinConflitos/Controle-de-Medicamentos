@@ -10,6 +10,7 @@ public class RepositorioEstoqueEntradaEmMemoria : IRepositorio<EstoqueEntrada>
 
     public void Cadastrar(EstoqueEntrada RequisicaoEntrada)
     {
+        RequisicaoEntrada.RegistrarEntrada();
         registros.Add(RequisicaoEntrada);
     }
 
