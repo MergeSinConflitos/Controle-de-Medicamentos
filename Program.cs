@@ -6,6 +6,7 @@ using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
 using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 using ControleDeMedicamentos.ConsoleApp.Ultilidades;
+using ControleDeMedicamentos.ConsoleApp.ModuloDeEstoqueEntrada;
 
 
 
@@ -27,8 +28,9 @@ IRepositorio<Fornecedor> repositorioFornecedor = new RepositorioFornecedorEmArqu
 IRepositorio<Paciente> repositorioPaciente = new RepositorioPacienteEmArquivo(contexto);
 IRepositorio<Funcionario> repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contexto);
 IRepositorio<Medicamento> repositorioMedicamento = new RepositorioMedicamentoEmArquivo(contexto);
+IRepositorio<EstoqueEntrada> repositorioEstoqueEntrada = new RepositorioEstoqueEntradaEmArquivo(contexto);
 
-TelaPrincipal telaPrincipal = new TelaPrincipal(repositorioFornecedor, repositorioPaciente, repositorioMedicamento, repositorioFuncionario);
+TelaPrincipal telaPrincipal = new TelaPrincipal(repositorioFornecedor, repositorioPaciente, repositorioMedicamento, repositorioFuncionario, repositorioEstoqueEntrada);
 
 while (true)
 {
@@ -63,6 +65,17 @@ while (true)
 
             else if (opcaoSubMenu == "4")
                 telaCrud.VisualizarTodos(deveExibirCabecalho: true);
+        }
+        else if (telaSelecionada is ITelaEstoque telaEstoque)
+        {
+            if (opcaoSubMenu == "1")
+            {
+                telaEstoque.Cadastrar();
+            }
+            else if (opcaoSubMenu == "2")
+            {
+                telaEstoque.VisualizarTodos(deveExibirCabecalho: true);
+            }
         }
     }
 }

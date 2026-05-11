@@ -4,6 +4,7 @@ using ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios;
 using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
 using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
+using ControleDeMedicamentos.ConsoleApp.ModuloDeEstoqueEntrada;
 
 namespace ControleDeMedicamentos.ConsoleApp.Ultilidades;
 
@@ -17,13 +18,16 @@ public class TelaPrincipal
 
     private readonly IRepositorio<Medicamento> repositorioMedicamento;
 
+    private readonly IRepositorio<EstoqueEntrada> repositorioEstoqueEntrada;
 
-    public TelaPrincipal(IRepositorio<Fornecedor> repositorioFornecedor, IRepositorio<Paciente> repositorioPaciente, IRepositorio<Medicamento> repositorioMedicamento, IRepositorio<Funcionario> repositorioFuncionario)
+
+    public TelaPrincipal(IRepositorio<Fornecedor> repositorioFornecedor, IRepositorio<Paciente> repositorioPaciente, IRepositorio<Medicamento> repositorioMedicamento, IRepositorio<Funcionario> repositorioFuncionario, IRepositorio<EstoqueEntrada> repositorioEstoqueEntrada)
     {
         this.repositorioPaciente = repositorioPaciente;
         this.repositorioFornecedor = repositorioFornecedor;
         this.repositorioMedicamento = repositorioMedicamento;
         this.repositorioFuncionario = repositorioFuncionario;
+        this.repositorioEstoqueEntrada = repositorioEstoqueEntrada;
     }
 
     public ITelaOpcoes? ApresentarMenuOpcoesPrincipal()
@@ -55,7 +59,7 @@ public class TelaPrincipal
             return new TelaFuncionario(repositorioFuncionario);
 
         if (opcaoMenuPrincipal == "5")
-            return null;
+            return new TelaEstoqueEntrada(repositorioEstoqueEntrada,repositorioMedicamento,repositorioFuncionario);
             
         return null;
     }
