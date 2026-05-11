@@ -88,7 +88,6 @@ public abstract class TelaBase<T> where T : EntidadeBase
 
         Console.WriteLine("---------------------------------");
         
-
         string? idSelecionado;
 
         do
@@ -153,7 +152,7 @@ public abstract class TelaBase<T> where T : EntidadeBase
 
     public void Excluir()
     {
-        ExibirCabecalho("Exclusão de Pacientes");
+        ExibirCabecalho($"Exclusão de {nomeEntidade}");
 
         VisualizarTodos(deveExibirCabecalho: false);
 
