@@ -1,5 +1,3 @@
-using System;
-
 namespace ControleDeMedicamentos.ConsoleApp.Compartilhado.Memoria;
 
 public abstract class RepositorioBaseEmMemoria<T> where T : EntidadeBase

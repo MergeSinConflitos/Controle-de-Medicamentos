@@ -52,7 +52,7 @@ public class TelaPaciente : TelaBase<Paciente>, ITelaOpcoes, ITelaCrud
 
         Console.Write("Informe o telefone do paciente: ");
         string telefone = Console.ReadLine() ?? string.Empty;
-
+        
 
         Console.Write("Informe n° do Cartão do SUS: ");
         string cartaoSus = Console.ReadLine() ?? string.Empty;
