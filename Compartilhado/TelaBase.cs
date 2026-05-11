@@ -66,17 +66,20 @@ public abstract class TelaBase<T> where T : EntidadeBase
 
             Notificador.ExibirMensagem($"O registro \"{novaEntidade.Id}\" foi cadastrado com sucesso!");
         }
+
         catch (FormatException)
         {
             Notificador.ExibirMensagem("O formato do valor de um dos campos está inválido.");
             Cadastrar();
         }
 
+
         catch (Exception)
         {
             Notificador.ExibirMensagem("Ocorreu um erro inesperado. Tente novamente.");
             Cadastrar();
         }
+
 
     }
 
@@ -198,13 +201,6 @@ public abstract class TelaBase<T> where T : EntidadeBase
             Notificador.ExibirMensagensErro(errosExclusao);
             return;
         }
-
-        // 6. muestra el resultado
-        if (conseguiuExcluir)
-            Notificador.ExibirMensagem($"O registro \"{idSelecionado}\" foi excluído com sucesso!");
-        else
-            Notificador.ExibirMensagem("Não foi possível excluir o registro.");
-
     }
     public abstract void VisualizarTodos(bool deveExibirCabecalho);
 
