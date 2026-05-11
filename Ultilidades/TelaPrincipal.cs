@@ -18,9 +18,6 @@ public class TelaPrincipal
     private readonly IRepositorio<Medicamento> repositorioMedicamento;
 
 
-    
-
-
     public TelaPrincipal(IRepositorio<Fornecedor> repositorioFornecedor, IRepositorio<Paciente> repositorioPaciente, IRepositorio<Medicamento> repositorioMedicamento, IRepositorio<Funcionario> repositorioFuncionario)
     {
         this.repositorioPaciente = repositorioPaciente;
