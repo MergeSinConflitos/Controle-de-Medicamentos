@@ -12,6 +12,7 @@
     <Folder Include="Compartilhado\Arquivos\" />
     <Folder Include="Compartilhado\Memoria\" />
     <Folder Include="ModuloDeEstoqueEntrada\" />
+    <Folder Include="ModuloEstoqueSaida\" />
     <Folder Include="ModuloFuncionarios\" />
     <Folder Include="ModuloMedicamentos\" />
     <Folder Include="Ultilidades\" />

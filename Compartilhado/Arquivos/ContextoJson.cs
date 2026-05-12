@@ -6,6 +6,7 @@ using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
 using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 using ControleDeMedicamentos.ConsoleApp.ModuloDeEstoqueEntrada;
+using ControleDeMedicamentos.ConsoleApp.ModuloEstoqueSaida;
 
 namespace ControleDeMedicamentos.ConsoleApp.Compartilhado.Arquivos;
 
@@ -20,6 +21,8 @@ public class ContextoJson
     public List<Medicamento> Medicamentos { get; set; } = new List<Medicamento>();
 
     public List<EstoqueEntrada> RegistrosEntrada { get; set; } = new List<EstoqueEntrada>();
+
+    public List<EstoqueSaida> RegistrosSaida { get; set; } = new List<EstoqueSaida>();
 
     private readonly string caminhoArquivo;
 
@@ -67,5 +70,6 @@ public class ContextoJson
         this.Funcionarios = contextoSalvo.Funcionarios;
         this.Medicamentos = contextoSalvo.Medicamentos;
         this.RegistrosEntrada = contextoSalvo.RegistrosEntrada;
+        this.RegistrosSaida = contextoSalvo.RegistrosSaida;
     }
 }
