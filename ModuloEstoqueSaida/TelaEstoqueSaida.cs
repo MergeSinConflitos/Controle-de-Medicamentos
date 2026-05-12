@@ -55,7 +55,7 @@ public class TelaEstoqueSaida : TelaBase<EstoqueSaida>, ITelaCrud, ITelaOpcoes
 
         foreach (EstoqueSaida s in saidas)
         {
-            // monta a lista de medicamentos em uma string
+            //lista de medicamentos em uma string
             string medicamentos = "";
 
             foreach (Medicamento m in s.Medicamentos)
@@ -101,7 +101,7 @@ public class TelaEstoqueSaida : TelaBase<EstoqueSaida>, ITelaCrud, ITelaOpcoes
         do
         {
             Console.Write("Digite o ID do paciente (ou S para sair): ");
-            idPaciente = Console.ReadLine() ?? string.Empty;
+            idPaciente = Console.ReadLine()? .ToUpper() ?? string.Empty;
 
             if(idPaciente.ToUpper() == "S")
                 return null!;

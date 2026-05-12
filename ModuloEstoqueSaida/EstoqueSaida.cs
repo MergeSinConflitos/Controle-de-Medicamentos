@@ -18,6 +18,11 @@ public class EstoqueSaida : EntidadeBase
         Medicamentos = medicamentos;
     }
 
+    public EstoqueSaida()
+    {
+        
+    }
+
     public override void AtualizarDados(EntidadeBase entidadeAtualizada)
     {
         throw new NotImplementedException();
