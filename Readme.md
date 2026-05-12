@@ -1,6 +1,6 @@
 # CONTROLE DE MEDICAMENTOS
 
-![]()
+![](./Docs/ControledeMedicamentos.gif)
 
 ## Introdução
 
