@@ -88,8 +88,10 @@ public class TelaEstoqueSaida : TelaBase<EstoqueSaida>, ITelaCrud, ITelaOpcoes
         Console.Write("Informe a data da requisição: ");
         DateTime data = Convert.ToDateTime(Console.ReadLine());
 
-        //  mostrar y seleccionar paciente
-        Console.WriteLine("\nPacientes disponíveis:");
+        // mostrar y seleccionar paciente
+        Console.WriteLine("---------------------------------");
+        Console.WriteLine("Pacientes disponíveis:");
+        Console.WriteLine("---------------------------------");
         Console.WriteLine("{0, -7} | {1, -30} | {2, -15}", "Id", "Nome", "CPF");
 
         foreach (Paciente p in repositorioPaciente.SelecionarTodos())
@@ -99,9 +101,10 @@ public class TelaEstoqueSaida : TelaBase<EstoqueSaida>, ITelaCrud, ITelaOpcoes
 
         string? idPaciente;
         do
-        {
-            Console.Write("Digite o ID do paciente (ou S para sair): ");
-            idPaciente = Console.ReadLine()? .ToUpper() ?? string.Empty;
+        {   
+            
+            Console.WriteLine("Digite o ID do paciente (ou S para sair): ");
+            idPaciente = Console.ReadLine() ?? string.Empty;
 
             if(idPaciente.ToUpper() == "S")
                 return null!;
@@ -125,8 +128,10 @@ public class TelaEstoqueSaida : TelaBase<EstoqueSaida>, ITelaCrud, ITelaOpcoes
         bool continuarSelecionando = true;
 
         while (continuarSelecionando)
-        {
+        {   
+            Console.WriteLine("---------------------------------");
             Console.WriteLine("Medicamentos disponíveis:");
+            Console.WriteLine("---------------------------------");
             Console.WriteLine(
                 "{0, -7} | {1, -30} | {2, -10}",
                 "Id", "Nome", "Estoque"
