@@ -7,6 +7,7 @@ using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
 using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 using ControleDeMedicamentos.ConsoleApp.Ultilidades;
 using ControleDeMedicamentos.ConsoleApp.ModuloDeEstoqueEntrada;
+using ControleDeMedicamentos.ConsoleApp.ModuloEstoqueSaida;
 
 
 
@@ -29,8 +30,9 @@ IRepositorio<Paciente> repositorioPaciente = new RepositorioPacienteEmArquivo(co
 IRepositorio<Funcionario> repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contexto);
 IRepositorio<Medicamento> repositorioMedicamento = new RepositorioMedicamentoEmArquivo(contexto);
 IRepositorio<EstoqueEntrada> repositorioEstoqueEntrada = new RepositorioEstoqueEntradaEmArquivo(contexto);
+IRepositorio<EstoqueSaida> repositorioEstoqueSaida = new RepositorioEstoqueSaidaEmArquivo(contexto);
 
-TelaPrincipal telaPrincipal = new TelaPrincipal(repositorioFornecedor, repositorioPaciente, repositorioMedicamento, repositorioFuncionario, repositorioEstoqueEntrada);
+TelaPrincipal telaPrincipal = new TelaPrincipal(repositorioFornecedor, repositorioPaciente, repositorioMedicamento, repositorioFuncionario, repositorioEstoqueEntrada, repositorioEstoqueSaida);
 
 while (true)
 {

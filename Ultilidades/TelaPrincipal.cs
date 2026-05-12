@@ -5,6 +5,7 @@ using ControleDeMedicamentos.ConsoleApp.ModuloFornecedores;
 using ControleDeMedicamentos.ConsoleApp.ModuloMedicamentos;
 using ControleDeMedicamentos.ConsoleApp.ModuloPacientes;
 using ControleDeMedicamentos.ConsoleApp.ModuloDeEstoqueEntrada;
+using ControleDeMedicamentos.ConsoleApp.ModuloEstoqueSaida;
 
 namespace ControleDeMedicamentos.ConsoleApp.Ultilidades;
 
@@ -20,14 +21,16 @@ public class TelaPrincipal
 
     private readonly IRepositorio<EstoqueEntrada> repositorioEstoqueEntrada;
 
+    private readonly IRepositorio<EstoqueSaida> repositorioEstoqueSaida;
 
-    public TelaPrincipal(IRepositorio<Fornecedor> repositorioFornecedor, IRepositorio<Paciente> repositorioPaciente, IRepositorio<Medicamento> repositorioMedicamento, IRepositorio<Funcionario> repositorioFuncionario, IRepositorio<EstoqueEntrada> repositorioEstoqueEntrada)
+    public TelaPrincipal(IRepositorio<Fornecedor> repositorioFornecedor, IRepositorio<Paciente> repositorioPaciente, IRepositorio<Medicamento> repositorioMedicamento, IRepositorio<Funcionario> repositorioFuncionario, IRepositorio<EstoqueEntrada> repositorioEstoqueEntrada, IRepositorio<EstoqueSaida> repositorioEstoqueSaida)
     {
         this.repositorioPaciente = repositorioPaciente;
         this.repositorioFornecedor = repositorioFornecedor;
         this.repositorioMedicamento = repositorioMedicamento;
         this.repositorioFuncionario = repositorioFuncionario;
         this.repositorioEstoqueEntrada = repositorioEstoqueEntrada;
+        this.repositorioEstoqueSaida = repositorioEstoqueSaida;
     }
 
     public ITelaOpcoes? ApresentarMenuOpcoesPrincipal()
@@ -40,7 +43,8 @@ public class TelaPrincipal
         Console.WriteLine("2 - Gestão de Pacientes");
         Console.WriteLine("3 - Gestão de Medicamentos");
         Console.WriteLine("4 - Gestão de Funcionarios");
-        Console.WriteLine("5 - Gestão de Estoque");
+        Console.WriteLine("5 - Gestão de Estoque Entrada");
+        Console.WriteLine("6 - Gestão de Estoque Saida");
         Console.WriteLine("S - Sair");
         Console.WriteLine("---------------------------------");
         Console.Write("> ");
@@ -60,7 +64,10 @@ public class TelaPrincipal
 
         if (opcaoMenuPrincipal == "5")
             return new TelaEstoqueEntrada(repositorioEstoqueEntrada,repositorioMedicamento,repositorioFuncionario);
-            
+        
+        if (opcaoMenuPrincipal == "6")
+            return new TelaEstoqueSaida(repositorioEstoqueSaida,repositorioPaciente,repositorioMedicamento);  
+        
         return null;
     }
 }
