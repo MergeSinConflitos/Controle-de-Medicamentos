@@ -9,14 +9,13 @@ public class Medicamento : EntidadeBase
 {
     public string Nome { get; set; }
     public string Descricao { get; set; }
-    public int QuantidadeEmEstoque { get; set; }
+    public int QuantidadeEmEstoque { get; set; } = 0;
     public Fornecedor Fornecedor { get; set; }
 
-    public Medicamento(string nome, string descricao, int quantidadeEmEstoque, Fornecedor fornecedor)
+    public Medicamento(string nome, string descricao, Fornecedor fornecedor)
     {
         Nome = nome;
         Descricao = descricao;
-        QuantidadeEmEstoque = quantidadeEmEstoque;
         Fornecedor = fornecedor;
     }
 

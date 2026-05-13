@@ -60,10 +60,6 @@ public class TelaMedicamento : TelaBase<Medicamento>, ITelaCrud, ITelaOpcoes
         System.Console.Write("Informe a descrição: ");
         string descricao = Console.ReadLine() ?? string.Empty;
 
-        int quantidadeEmEstoque;
-        Console.Write("Quantidade em estoque:");
-        int.TryParse(Console.ReadLine(), out quantidadeEmEstoque);
-
         VisualizarTodosFornecedores();
 
         string idFornecedor;
@@ -81,7 +77,7 @@ public class TelaMedicamento : TelaBase<Medicamento>, ITelaCrud, ITelaOpcoes
 
         Fornecedor fornecedorSelecionado = repositorioFornecedor.SelecionarPorId(idFornecedor);
 
-        return new Medicamento(nome, descricao, quantidadeEmEstoque, fornecedorSelecionado);
+        return new Medicamento(nome, descricao, fornecedorSelecionado);
     }
 
     private void VisualizarTodosFornecedores()
